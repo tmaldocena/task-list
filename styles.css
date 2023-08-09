@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+
+:root{
+    --accent: #E6DD3B;
+    --light-color: #29BB89;
+    --main-color: #1E6F5C;
+    --secondary-color: #289672;
+    --black: #1B1212;
+    --white: #FFFFF0;
+}
+
+.material-symbols-rounded {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--white);
+    max-height: 90vh;
+    background: url('./img/background.jpg') no-repeat center center fixed;
+    background-color: var(--main-color);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10em;
+}
+.navbar p {
+    font-size: 24px;
+}
+.title{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.title span{
+    color: var(--accent);
+}
+.btn{
+    background: none;
+    border: none;
+    color: var(--accent);
+    transition: all .5s ease-in;
+    cursor: pointer;
+}
+#addTaskBtn:hover {
+    transform: scale(1.2);
+}
+.card{
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.4px);
+    -webkit-backdrop-filter: blur(3.4px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    height: 90vh;
+    margin: 2em 30% 0 30%;
+    
+}
+.task-list {
+    list-style: none;
+    padding: 0;
+    overflow-y: auto;
+    height: 65vh;
+}
+.border{
+    border: 1px solid rgba(40, 150, 114, 0.16);
+}
+.task {
+    padding: 10px;
+    margin: 10px 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);;
+}
+.completed {
+    text-decoration: line-through;
+    font-style: italic;
+    color: var(--light-color);
+}
+
+.group-btn{
+    display: flex;
+    gap: 8px;
+}
+
+.li-flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.empty{
+    text-align: center;
+}
+
+#filters{
+    margin-left: 2em;
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1em;
+}
+
+#filters input {
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    margin: 0;
+    background: none;
+    vertical-align: bottom;
+    position: relative;
+    top: -4px;
+}
+
+input[type='checkbox']{
+    accent-color: var(--accent);
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.17);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.6px);
+    -webkit-backdrop-filter: blur(7.6px);
+    border: 1px solid rgba(255, 255, 255, 0.59);
+    margin: auto;
+    padding: 20px;
+    width: 40%;
+    width: 40em;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+.modal-title{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 13em;
+}
+
+.modal-input{
+    display: flex;
+    margin: 1em 2em;
+    flex-direction: column;
+}
+
+#closeModal{
+    color: var(--accent);
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+#closeModal:hover{
+    transform: scale(1.2);
+}
+
+#taskTitle{
+    background: rgba(41, 187, 137, 0.5);
+    border-radius: 4px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.6px);
+    -webkit-backdrop-filter: blur(7.6px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    padding: 0.5em;
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--white);
+    margin-bottom: 2em;
+    font-size: 1.2em;
+}
+
+#taskDescription{
+    background: rgba(41, 187, 137, 0.5);
+    border-radius: 4px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.6px);
+    -webkit-backdrop-filter: blur(7.6px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    padding: 0.5em;
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--white);
+    margin-bottom: 2em;
+}
+
+#modalButton{
+    background: rgba(41, 187, 137, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.6px);
+    -webkit-backdrop-filter: blur(7.6px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    padding: 0.5em;
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--white);
+    margin: 2em 30% 0 30%;
+    padding: 1em 0;
+    transition: all 0.3s ease-in;
+}
+
+#modalButton:hover{
+    background-color: var(--main-color);
+    color: var(--white);
+    cursor: pointer;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #e6e6e6;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #e6e6e6;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #e6e6e6;
+  }
+
+/*Scrollbar styling*/
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) var(--light-color);
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: none;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border-radius: 20px;
+    border: 2px solid var(--light-color);
+  }
+
+/*Version de Movil, corregir*/
+
+@media screen and (max-width: 1024px) {
+    .card {
+      margin: 1em 4em;
+    }
+  }
+@media screen and (max-width: 767px) {
+    .card {
+      margin: 1em 1em;
+    }
+
+    .modal-content{
+        width: 40%;
+    }
+    .modal-title{
+        gap: 2em;
+        justify-content: space-between;
+        font-size: 12px;
+    }
+    .modal-input{
+        margin: 1em 1em;
+        font-size: 12px;
+    }
+  }
